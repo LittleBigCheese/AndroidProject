@@ -40,8 +40,9 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void run() {
                 this.handler.postDelayed(this, 1000);
+                punchingBag.setIncrement(numPunchingBags);
                  punchingBag.incrementMoney();
-                MainActivity.this.moneyText.setText(String.format("%s", "Money: " + numPunchingBags*punchingBag.getMoney()));
+                MainActivity.this.moneyText.setText(String.format("%s", "Money: " + punchingBag.getMoney()));
                 punchingBagButton.setOnTouchListener(new View.OnTouchListener() {
                     @Override
                     public boolean onTouch(View v, MotionEvent event) {
