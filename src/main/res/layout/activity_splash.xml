@@ -8,7 +8,7 @@
 
     <ImageView
         android:id="@+id/imageView"
-        android:src="@drawable/splash_screen_beta"
+        android:src="@drawable/splash_screen_2"
         android:layout_width="500dp"
         android:layout_height="500dp"
         app:layout_constraintBottom_toBottomOf="parent"
