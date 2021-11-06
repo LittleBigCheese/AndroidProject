@@ -10,7 +10,9 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.IdleGame">
-        <activity android:name=".SplashActivity"
+
+        <activity
+            android:name=".SplashActivity"
             android:exported="true"
             tools:ignore="IntentFilterExportedReceiver">
             <intent-filter>
@@ -19,9 +21,15 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".MainActivity">
 
-        </activity>
+
+
+
+        <activity android:name=".MainActivity"></activity>
+
+        <activity
+            android:name=".SettingsActivity"></activity>
+            //android:label="Idle Game"
     </application>
 
 </manifest>

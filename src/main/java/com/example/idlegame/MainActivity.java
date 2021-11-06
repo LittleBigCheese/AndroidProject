@@ -3,10 +3,12 @@ package com.example.idlegame;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.annotation.SuppressLint;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.MotionEvent;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.TextView;
 import android.os.Handler;
 import java.util.Date;
@@ -18,6 +20,7 @@ public class MainActivity extends AppCompatActivity {
     TextView moneyText;
     TextView punchingBagText;
     Button punchingBagButton;
+    ImageButton settingsButton;
     BasicIdleCounter punchingBag = new BasicIdleCounter();
     int numPunchingBags = 1;
 
@@ -26,8 +29,9 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         moneyText = (TextView) findViewById(R.id.textView);
-        punchingBagText = (TextView) findViewById(R.id.textView3);;
+        punchingBagText = (TextView) findViewById(R.id.textView3);
         punchingBagButton = (Button) findViewById(R.id.button);
+        settingsButton = (ImageButton) findViewById(R.id.imageButton);
         final Handler handler = new Handler();
         class MyRunnable implements Runnable {
             private Handler handler;
@@ -50,6 +54,20 @@ public class MainActivity extends AppCompatActivity {
                             lastDown = System.currentTimeMillis();
                             numPunchingBags++;
                             MainActivity.this.punchingBagText.setText(String.format("%s", "Num of Punching Bags: " + numPunchingBags));
+                        } else if (event.getAction() == MotionEvent.ACTION_UP) {
+                            lastDuration = System.currentTimeMillis() - lastDown;
+                        }
+
+                        return true;
+                    }
+                });
+                settingsButton.setOnTouchListener(new View.OnTouchListener() {
+                    @Override
+                    public boolean onTouch(View v, MotionEvent event) {
+                        if(event.getAction() == MotionEvent.ACTION_DOWN) {
+                            lastDown = System.currentTimeMillis();
+                            startActivity(new Intent(MainActivity.this, SettingsActivity.class));
+
                         } else if (event.getAction() == MotionEvent.ACTION_UP) {
                             lastDuration = System.currentTimeMillis() - lastDown;
                         }
