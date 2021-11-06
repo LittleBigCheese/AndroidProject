@@ -23,13 +23,12 @@
         </activity>
 
 
-
-
         <activity android:name=".MainActivity"></activity>
 
         <activity
             android:name=".SettingsActivity"></activity>
-            //android:label="Idle Game"
-    </application>
 
+
+        <activity android:name=".DungeonActivity"></activity>
+    </application>
 </manifest>

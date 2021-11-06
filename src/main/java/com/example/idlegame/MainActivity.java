@@ -21,6 +21,7 @@ public class MainActivity extends AppCompatActivity {
     TextView punchingBagText;
     Button punchingBagButton;
     ImageButton settingsButton;
+    ImageButton dungeonButton;
     BasicIdleCounter punchingBag = new BasicIdleCounter();
     int numPunchingBags = 1;
 
@@ -32,6 +33,7 @@ public class MainActivity extends AppCompatActivity {
         punchingBagText = (TextView) findViewById(R.id.textView3);
         punchingBagButton = (Button) findViewById(R.id.button);
         settingsButton = (ImageButton) findViewById(R.id.imageButton);
+        dungeonButton = (ImageButton) findViewById(R.id.imageButton3);
         final Handler handler = new Handler();
         class MyRunnable implements Runnable {
             private Handler handler;
@@ -67,6 +69,21 @@ public class MainActivity extends AppCompatActivity {
                         if(event.getAction() == MotionEvent.ACTION_DOWN) {
                             lastDown = System.currentTimeMillis();
                             startActivity(new Intent(MainActivity.this, SettingsActivity.class));
+
+                        } else if (event.getAction() == MotionEvent.ACTION_UP) {
+                            lastDuration = System.currentTimeMillis() - lastDown;
+                        }
+
+                        return true;
+                    }
+                });
+
+                dungeonButton.setOnTouchListener(new View.OnTouchListener() {
+                    @Override
+                    public boolean onTouch(View v, MotionEvent event) {
+                        if(event.getAction() == MotionEvent.ACTION_DOWN) {
+                            lastDown = System.currentTimeMillis();
+                            startActivity(new Intent(MainActivity.this, DungeonActivity.class));
 
                         } else if (event.getAction() == MotionEvent.ACTION_UP) {
                             lastDuration = System.currentTimeMillis() - lastDown;
