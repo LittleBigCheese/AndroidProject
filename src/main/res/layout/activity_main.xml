@@ -152,7 +152,7 @@
         android:layout_marginEnd="4dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/settings_icon"
+        app:srcCompat="@drawable/settings_icon_update"
         tools:ignore="SpeakableTextPresentCheck" />
 
     <TextView
