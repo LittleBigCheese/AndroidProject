@@ -42,7 +42,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/download" />
+        app:srcCompat="@drawable/punchingbag_flipped" />
 
     <ImageView
         android:id="@+id/imageView5"
@@ -90,12 +90,8 @@
         android:layout_width="41dp"
         android:layout_height="23dp"
         android:layout_marginStart="293dp"
-        android:layout_marginTop="464dp"
-        android:layout_marginEnd="77dp"
-        android:layout_marginBottom="244dp"
+        android:layout_marginTop="482dp"
         android:text="Sword"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -117,12 +113,8 @@
         android:layout_width="105dp"
         android:layout_height="51dp"
         android:layout_marginStart="262dp"
-        android:layout_marginTop="501dp"
-        android:layout_marginEnd="44dp"
-        android:layout_marginBottom="179dp"
+        android:layout_marginTop="519dp"
         android:text="Upgrade"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -130,14 +122,14 @@
         android:id="@+id/button3"
         android:layout_width="109dp"
         android:layout_height="55dp"
-        android:layout_marginTop="72dp"
+        android:layout_marginTop="647dp"
         android:text="Upgrade"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.079"
+        app:layout_constraintHorizontal_bias="0.188"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/button"
-        app:layout_constraintVertical_bias="0.064" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.147" />
 
     <TextView
         android:id="@+id/textView6"
@@ -147,10 +139,10 @@
         android:text="Armor"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.153"
+        app:layout_constraintHorizontal_bias="0.26"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView3"
-        app:layout_constraintVertical_bias="0.0" />
+        app:layout_constraintVertical_bias="0.031" />
 
     <ImageButton
         android:id="@+id/imageButton"
