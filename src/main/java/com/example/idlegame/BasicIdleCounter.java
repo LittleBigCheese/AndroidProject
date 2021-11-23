@@ -11,7 +11,7 @@ public class BasicIdleCounter {
         increment = num;
     }
     public void incrementMoney(){
-
+    //Increments the money counter eaxh team
            money = money + increment;
         }
     }
