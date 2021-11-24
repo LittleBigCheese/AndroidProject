@@ -19,6 +19,8 @@ public class MainActivity extends AppCompatActivity {
     long lastDuration;
     TextView moneyText;
     TextView punchingBagText;
+    TextView swordText;
+    TextView shieldText;
     Button punchingBagButton, swordButton, shieldButton;
     ImageButton settingsButton;
     ImageButton dungeonButton;
@@ -30,6 +32,8 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         moneyText = (TextView) findViewById(R.id.textView);
+        swordText = (TextView) findViewById(R.id.textView5);
+        shieldText = (TextView) findViewById(R.id.textView6);
         punchingBagText = (TextView) findViewById(R.id.textView3);
         punchingBagButton = (Button) findViewById(R.id.button);
         swordButton = (Button) findViewById(R.id.button2);
@@ -71,6 +75,7 @@ public class MainActivity extends AppCompatActivity {
                         if(event.getAction() == MotionEvent.ACTION_DOWN) {
                             lastDown = System.currentTimeMillis();
                             punchingBag.incrementAttack();
+                            MainActivity.this.swordText.setText(String.format("%s", "Sword Level: " + punchingBag.attack));
                         } else if (event.getAction() == MotionEvent.ACTION_UP) {
                             lastDuration = System.currentTimeMillis() - lastDown;
                         }
@@ -84,6 +89,7 @@ public class MainActivity extends AppCompatActivity {
                         if(event.getAction() == MotionEvent.ACTION_DOWN) {
                             lastDown = System.currentTimeMillis();
                             punchingBag.incrementDefense();
+                            MainActivity.this.shieldText.setText(String.format("%s", "Shield Level: " + punchingBag.defense));
                         } else if (event.getAction() == MotionEvent.ACTION_UP) {
                             lastDuration = System.currentTimeMillis() - lastDown;
                         }
