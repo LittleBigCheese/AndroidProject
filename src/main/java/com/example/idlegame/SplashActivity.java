@@ -28,6 +28,7 @@ public class SplashActivity extends AppCompatActivity {
                     finish();
                 }
             }
+            //This method Displays the splash screen for the game
 
         };
         splashScreenStarter.start();
