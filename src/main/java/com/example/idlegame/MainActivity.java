@@ -19,7 +19,9 @@ public class MainActivity extends AppCompatActivity {
     long lastDuration;
     TextView moneyText;
     TextView punchingBagText;
-    Button punchingBagButton;
+    TextView swordText;
+    TextView shieldText;
+    Button punchingBagButton, swordButton, shieldButton;
     ImageButton settingsButton;
     ImageButton dungeonButton;
     BasicIdleCounter punchingBag = new BasicIdleCounter();
@@ -30,8 +32,12 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         moneyText = (TextView) findViewById(R.id.textView);
+        swordText = (TextView) findViewById(R.id.textView5);
+        shieldText = (TextView) findViewById(R.id.textView6);
         punchingBagText = (TextView) findViewById(R.id.textView3);
         punchingBagButton = (Button) findViewById(R.id.button);
+        swordButton = (Button) findViewById(R.id.button2);
+        shieldButton = (Button) findViewById(R.id.button3);
         settingsButton = (ImageButton) findViewById(R.id.imageButton);
         dungeonButton = (ImageButton) findViewById(R.id.imageButton3);
         final Handler handler = new Handler();
@@ -56,6 +62,34 @@ public class MainActivity extends AppCompatActivity {
                             lastDown = System.currentTimeMillis();
                             numPunchingBags++;
                             MainActivity.this.punchingBagText.setText(String.format("%s", "Num of Punching Bags: " + numPunchingBags));
+                        } else if (event.getAction() == MotionEvent.ACTION_UP) {
+                            lastDuration = System.currentTimeMillis() - lastDown;
+                        }
+
+                        return true;
+                    }
+                });
+                swordButton.setOnTouchListener(new View.OnTouchListener() {
+                    @Override
+                    public boolean onTouch(View v, MotionEvent event) {
+                        if(event.getAction() == MotionEvent.ACTION_DOWN) {
+                            lastDown = System.currentTimeMillis();
+                            punchingBag.incrementAttack();
+                            MainActivity.this.swordText.setText(String.format("%s", "Sword Level: " + punchingBag.attack));
+                        } else if (event.getAction() == MotionEvent.ACTION_UP) {
+                            lastDuration = System.currentTimeMillis() - lastDown;
+                        }
+
+                        return true;
+                    }
+                });
+                shieldButton.setOnTouchListener(new View.OnTouchListener() {
+                    @Override
+                    public boolean onTouch(View v, MotionEvent event) {
+                        if(event.getAction() == MotionEvent.ACTION_DOWN) {
+                            lastDown = System.currentTimeMillis();
+                            punchingBag.incrementDefense();
+                            MainActivity.this.shieldText.setText(String.format("%s", "Shield Level: " + punchingBag.defense));
                         } else if (event.getAction() == MotionEvent.ACTION_UP) {
                             lastDuration = System.currentTimeMillis() - lastDown;
                         }
