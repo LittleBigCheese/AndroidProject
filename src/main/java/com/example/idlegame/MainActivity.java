@@ -122,7 +122,7 @@ public class MainActivity extends AppCompatActivity {
                         } else if (event.getAction() == MotionEvent.ACTION_UP) {
                             lastDuration = System.currentTimeMillis() - lastDown;
                         }
-
+                        //sets dungeon button
                         return true;
                     }
                 });
