@@ -65,6 +65,32 @@ public class MainActivity extends AppCompatActivity {
                         return true;
                     }
                 });
+                swordButton.setOnTouchListener(new View.OnTouchListener() {
+                    @Override
+                    public boolean onTouch(View v, MotionEvent event) {
+                        if(event.getAction() == MotionEvent.ACTION_DOWN) {
+                            lastDown = System.currentTimeMillis();
+                            punchingBag.incrementAttack();
+                        } else if (event.getAction() == MotionEvent.ACTION_UP) {
+                            lastDuration = System.currentTimeMillis() - lastDown;
+                        }
+
+                        return true;
+                    }
+                });
+                shieldButton.setOnTouchListener(new View.OnTouchListener() {
+                    @Override
+                    public boolean onTouch(View v, MotionEvent event) {
+                        if(event.getAction() == MotionEvent.ACTION_DOWN) {
+                            lastDown = System.currentTimeMillis();
+                            punchingBag.incrementDefense();
+                        } else if (event.getAction() == MotionEvent.ACTION_UP) {
+                            lastDuration = System.currentTimeMillis() - lastDown;
+                        }
+
+                        return true;
+                    }
+                });
                 settingsButton.setOnTouchListener(new View.OnTouchListener() {
                     @Override
                     public boolean onTouch(View v, MotionEvent event) {
