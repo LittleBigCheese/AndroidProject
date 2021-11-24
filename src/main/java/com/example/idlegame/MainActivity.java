@@ -79,7 +79,7 @@ public class MainActivity extends AppCompatActivity {
                         } else if (event.getAction() == MotionEvent.ACTION_UP) {
                             lastDuration = System.currentTimeMillis() - lastDown;
                         }
-
+                        //Allows player to attack using sword and increase the level
                         return true;
                     }
                 });
@@ -93,7 +93,7 @@ public class MainActivity extends AppCompatActivity {
                         } else if (event.getAction() == MotionEvent.ACTION_UP) {
                             lastDuration = System.currentTimeMillis() - lastDown;
                         }
-
+                        //Allows player to use shield for defense and level up
                         return true;
                     }
                 });

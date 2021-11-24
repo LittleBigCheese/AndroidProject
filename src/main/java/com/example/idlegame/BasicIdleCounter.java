@@ -13,7 +13,7 @@ public class BasicIdleCounter {
         increment = num;
     }
     public void incrementMoney(){
-    //Increments the money counter eaxh team
+    //Increments the money counter each time
            money = money + increment;
         }
     public void incrementAttack(){

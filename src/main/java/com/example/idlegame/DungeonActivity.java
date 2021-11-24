@@ -30,7 +30,7 @@ public class DungeonActivity extends AppCompatActivity {
                 } else if (event.getAction() == MotionEvent.ACTION_UP) {
                     lastDuration = System.currentTimeMillis() - lastDown;
                 }
-                //dungeonStart(new Intent(MainActivity.this, dungeonstart.class));
+                //dungeonStart(new Intent(MainActivity.this, dungeonstart.class))
                 return true;
             }
         });
