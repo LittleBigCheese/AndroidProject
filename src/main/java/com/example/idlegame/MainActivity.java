@@ -19,7 +19,7 @@ public class MainActivity extends AppCompatActivity {
     long lastDuration;
     TextView moneyText;
     TextView punchingBagText;
-    Button punchingBagButton;
+    Button punchingBagButton, swordButton, shieldButton;
     ImageButton settingsButton;
     ImageButton dungeonButton;
     BasicIdleCounter punchingBag = new BasicIdleCounter();
@@ -32,6 +32,8 @@ public class MainActivity extends AppCompatActivity {
         moneyText = (TextView) findViewById(R.id.textView);
         punchingBagText = (TextView) findViewById(R.id.textView3);
         punchingBagButton = (Button) findViewById(R.id.button);
+        swordButton = (Button) findViewById(R.id.button2);
+        shieldButton = (Button) findViewById(R.id.button3);
         settingsButton = (ImageButton) findViewById(R.id.imageButton);
         dungeonButton = (ImageButton) findViewById(R.id.imageButton3);
         final Handler handler = new Handler();
