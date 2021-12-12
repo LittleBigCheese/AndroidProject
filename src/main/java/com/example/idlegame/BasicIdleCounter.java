@@ -3,7 +3,7 @@ package com.example.idlegame;
 
 public class BasicIdleCounter {
     private long money = 0;
-    public int cost = 100;
+    public int cost = 100; //base value for upgrade
     public int attack = 0;
     public int defense = 0;
     private int increment = 1;
