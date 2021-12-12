@@ -23,11 +23,13 @@ public class MainActivity extends AppCompatActivity {
     TextView shieldText;
     TextView costPBText;
     TextView costSwordText;
+    TextView costShieldText;
     Button punchingBagButton, swordButton, shieldButton;
     ImageButton settingsButton;
     ImageButton dungeonButton;
     BasicIdleCounter punchingBag = new BasicIdleCounter();
-    BasicIdleCounter sword = new BasicIdleCounter();
+    //BasicIdleCounter sword = new BasicIdleCounter();
+    //BasicIdleCounter shield = new BasicIdleCounter();
     int numPunchingBags = 1;
     //int cost = 100;
 
@@ -41,6 +43,7 @@ public class MainActivity extends AppCompatActivity {
         punchingBagText = (TextView) findViewById(R.id.textView3);
         costPBText = (TextView) findViewById(R.id.textView9);
         costSwordText = (TextView) findViewById(R.id.textView10);
+        costShieldText = (TextView) findViewById(R.id.textView11);
         punchingBagButton = (Button) findViewById(R.id.button);
         swordButton = (Button) findViewById(R.id.button2);
         shieldButton = (Button) findViewById(R.id.button3);
@@ -68,9 +71,9 @@ public class MainActivity extends AppCompatActivity {
                         if(event.getAction() == MotionEvent.ACTION_DOWN) {
                             lastDown = System.currentTimeMillis();
                             numPunchingBags++;
-                            punchingBag.decrementMoney();
+                            punchingBag.decrementMoney_PB();
                             MainActivity.this.punchingBagText.setText(String.format("%s", "Num of Punching Bags: " + numPunchingBags));
-                            MainActivity.this.costPBText.setText(String.format("%s", "Cost: " + punchingBag.getCost()));
+                            MainActivity.this.costPBText.setText(String.format("%s", "Cost: " + punchingBag.getCost_PB()));
                         } else if (event.getAction() == MotionEvent.ACTION_UP) {
                             lastDuration = System.currentTimeMillis() - lastDown;
                         }
@@ -83,10 +86,10 @@ public class MainActivity extends AppCompatActivity {
                     public boolean onTouch(View v, MotionEvent event) {
                         if(event.getAction() == MotionEvent.ACTION_DOWN) {
                             lastDown = System.currentTimeMillis();
-                            sword.incrementAttack();
-                            sword.decrementMoney();
-                            MainActivity.this.swordText.setText(String.format("%s", "Sword Level: " + sword.attack));
-                            MainActivity.this.costSwordText.setText(String.format("%s", "Cost: " + sword.getCost()));
+                            punchingBag.incrementAttack();
+                            punchingBag.decrementMoney_Sword();
+                            MainActivity.this.swordText.setText(String.format("%s", "Sword Level: " + punchingBag.attack));
+                            MainActivity.this.costSwordText.setText(String.format("%s", "Cost: " + punchingBag.getCost_Sword()));
                         } else if (event.getAction() == MotionEvent.ACTION_UP) {
                             lastDuration = System.currentTimeMillis() - lastDown;
                         }
@@ -100,6 +103,7 @@ public class MainActivity extends AppCompatActivity {
                         if(event.getAction() == MotionEvent.ACTION_DOWN) {
                             lastDown = System.currentTimeMillis();
                             punchingBag.incrementDefense();
+                            //punchingBag.decrementMoney();
                             MainActivity.this.shieldText.setText(String.format("%s", "Shield Level: " + punchingBag.defense));
                         } else if (event.getAction() == MotionEvent.ACTION_UP) {
                             lastDuration = System.currentTimeMillis() - lastDown;
