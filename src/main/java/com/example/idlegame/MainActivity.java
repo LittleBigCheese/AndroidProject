@@ -21,11 +21,13 @@ public class MainActivity extends AppCompatActivity {
     TextView punchingBagText;
     TextView swordText;
     TextView shieldText;
+    TextView costText;
     Button punchingBagButton, swordButton, shieldButton;
     ImageButton settingsButton;
     ImageButton dungeonButton;
     BasicIdleCounter punchingBag = new BasicIdleCounter();
     int numPunchingBags = 1;
+    //int cost = 100;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -35,6 +37,7 @@ public class MainActivity extends AppCompatActivity {
         swordText = (TextView) findViewById(R.id.textView5);
         shieldText = (TextView) findViewById(R.id.textView6);
         punchingBagText = (TextView) findViewById(R.id.textView3);
+        costText = (TextView) findViewById(R.id.textView9);
         punchingBagButton = (Button) findViewById(R.id.button);
         swordButton = (Button) findViewById(R.id.button2);
         shieldButton = (Button) findViewById(R.id.button3);
@@ -55,13 +58,16 @@ public class MainActivity extends AppCompatActivity {
                 punchingBag.setIncrement(numPunchingBags);
                  punchingBag.incrementMoney();
                 MainActivity.this.moneyText.setText(String.format("%s", "Money: " + punchingBag.getMoney()));
+
                 punchingBagButton.setOnTouchListener(new View.OnTouchListener() {
                     @Override
                     public boolean onTouch(View v, MotionEvent event) {
                         if(event.getAction() == MotionEvent.ACTION_DOWN) {
                             lastDown = System.currentTimeMillis();
                             numPunchingBags++;
+                            punchingBag.decrementMoney();
                             MainActivity.this.punchingBagText.setText(String.format("%s", "Num of Punching Bags: " + numPunchingBags));
+                            MainActivity.this.costText.setText(String.format("%s", "Cost: " +punchingBag.getCost()));
                         } else if (event.getAction() == MotionEvent.ACTION_UP) {
                             lastDuration = System.currentTimeMillis() - lastDown;
                         }
