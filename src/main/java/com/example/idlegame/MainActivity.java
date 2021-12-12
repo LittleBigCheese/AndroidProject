@@ -103,8 +103,9 @@ public class MainActivity extends AppCompatActivity {
                         if(event.getAction() == MotionEvent.ACTION_DOWN) {
                             lastDown = System.currentTimeMillis();
                             punchingBag.incrementDefense();
-                            //punchingBag.decrementMoney();
+                            punchingBag.decrementMoney_Shield();
                             MainActivity.this.shieldText.setText(String.format("%s", "Shield Level: " + punchingBag.defense));
+                            MainActivity.this.costShieldText.setText(String.format("%s", "Cost: " + punchingBag.getCost_Shield()));
                         } else if (event.getAction() == MotionEvent.ACTION_UP) {
                             lastDuration = System.currentTimeMillis() - lastDown;
                         }
