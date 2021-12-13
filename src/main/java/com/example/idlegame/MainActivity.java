@@ -30,7 +30,7 @@ public class MainActivity extends AppCompatActivity {
     BasicIdleCounter punchingBag = new BasicIdleCounter();
     //BasicIdleCounter sword = new BasicIdleCounter();
     //BasicIdleCounter shield = new BasicIdleCounter();
-    int numPunchingBags = 1;
+    //int numPunchingBags = 1;
     //int cost = 100;
 
     @Override
@@ -61,7 +61,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void run() {
                 this.handler.postDelayed(this, 1000);
-                punchingBag.setIncrement(numPunchingBags);
+                //punchingBag.setIncrement(numPunchingBags);
                  punchingBag.incrementMoney();
                 MainActivity.this.moneyText.setText(String.format("%s", "Money: " + punchingBag.getMoney()));
 
@@ -70,9 +70,9 @@ public class MainActivity extends AppCompatActivity {
                     public boolean onTouch(View v, MotionEvent event) {
                         if(event.getAction() == MotionEvent.ACTION_DOWN) {
                             lastDown = System.currentTimeMillis();
-                            numPunchingBags++;
+                            //numPunchingBags++;
                             punchingBag.decrementMoney_PB();
-                            MainActivity.this.punchingBagText.setText(String.format("%s", "Num of Punching Bags: " + numPunchingBags));
+                            MainActivity.this.punchingBagText.setText(String.format("%s", "Num of Punching Bags: " + punchingBag.getNumOfPunchingBags()));
                             MainActivity.this.costPBText.setText(String.format("%s", "Cost: " + punchingBag.getCost_PB()));
                         } else if (event.getAction() == MotionEvent.ACTION_UP) {
                             lastDuration = System.currentTimeMillis() - lastDown;
@@ -81,12 +81,13 @@ public class MainActivity extends AppCompatActivity {
                         return true;
                     }
                 });
+
                 swordButton.setOnTouchListener(new View.OnTouchListener() {
                     @Override
                     public boolean onTouch(View v, MotionEvent event) {
                         if(event.getAction() == MotionEvent.ACTION_DOWN) {
                             lastDown = System.currentTimeMillis();
-                            punchingBag.incrementAttack();
+                            //punchingBag.incrementAttack();
                             punchingBag.decrementMoney_Sword();
                             MainActivity.this.swordText.setText(String.format("%s", "Sword Level: " + punchingBag.attack));
                             MainActivity.this.costSwordText.setText(String.format("%s", "Cost: " + punchingBag.getCost_Sword()));
@@ -97,12 +98,13 @@ public class MainActivity extends AppCompatActivity {
                         return true;
                     }
                 });
+
                 shieldButton.setOnTouchListener(new View.OnTouchListener() {
                     @Override
                     public boolean onTouch(View v, MotionEvent event) {
                         if(event.getAction() == MotionEvent.ACTION_DOWN) {
                             lastDown = System.currentTimeMillis();
-                            punchingBag.incrementDefense();
+                            //punchingBag.incrementDefense();
                             punchingBag.decrementMoney_Shield();
                             MainActivity.this.shieldText.setText(String.format("%s", "Shield Level: " + punchingBag.defense));
                             MainActivity.this.costShieldText.setText(String.format("%s", "Cost: " + punchingBag.getCost_Shield()));
@@ -113,6 +115,7 @@ public class MainActivity extends AppCompatActivity {
                         return true;
                     }
                 });
+
                 settingsButton.setOnTouchListener(new View.OnTouchListener() {
                     @Override
                     public boolean onTouch(View v, MotionEvent event) {
