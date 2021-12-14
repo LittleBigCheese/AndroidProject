@@ -10,6 +10,7 @@ import android.view.View;
 import android.widget.ImageButton;
 
 //cool beans
+// even cooler beans
 public class DungeonActivity extends AppCompatActivity {
     long lastDown;
     long lastDuration;
